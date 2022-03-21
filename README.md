@@ -19,7 +19,15 @@ https://github.com/trunghlt/AdverseDrugReaction/tree/master/ADE-Corpus-V2 에서
 <br></br> 
 
 ## 알고리즘
-
+![알고리즘 순서도](https://user-images.githubusercontent.com/44535488/159202519-495f3b82-0499-4b5f-a707-2a7e8afae863.jpg)
+### 모델
++ SextDetectorDL(SDDL) 모델: 텍스트 데이터를 문장 단위로 분류하여 리스트 형태로 반환
++  ADE Classifier 파이프라인 모델: 각 문장의 ADE 여부를 반펼하여 결과가 true인 문장만 추출하여 텍스트 형태로 반환
++  ADE Relation Extraction 파이프라인 모델: DRUG-ADE 문자열 쌍으로 반환, 목표 약물에 대한 ADE를 제거하여 다른 약물에 대한 ADE 추출
++  ADE 파이프라인 모델: 해당 텍스트에 대한 ADE 추출
+### 필터링
++ 약물명이 있으면 약물 명이 나오기 전 모든 문장을 제거, 약을 복용하기 전 증상을 말하는 문장이 약물명을 언급하며 약물에 대한 효과나 부작용을 말하는 문장 전에 나올 것이라고 가정
++ 모든 문장에 대한 ADE - 다른 약물에 대한 ADE
 <br></br>
 
 ## 코드
