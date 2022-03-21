@@ -19,7 +19,7 @@ https://github.com/trunghlt/AdverseDrugReaction/tree/master/ADE-Corpus-V2 에서
 <br></br> 
 
 ## 알고리즘
-![알고리즘 순서도](https://user-images.githubusercontent.com/44535488/159202519-495f3b82-0499-4b5f-a707-2a7e8afae863.jpg)
+![알고리즘 순서도](https://user-images.githubusercontent.com/44535488/159203203-6ad3939c-59ae-48b1-ba55-f8760a2860b2.jpg)
 ### 모델
 + SextDetectorDL(SDDL) 모델: 텍스트 데이터를 문장 단위로 분류하여 리스트 형태로 반환
 +  ADE Classifier 파이프라인 모델: 각 문장의 ADE 여부를 반펼하여 결과가 true인 문장만 추출하여 텍스트 형태로 반환
