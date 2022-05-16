@@ -1,4 +1,4 @@
-# Detection-of-Adverse-Drug-Reactionsbased-on-FC-BERT-Filtering-Clinical-BERT-model
+# Filtering Clinical BERT (FC-BERT): An ADR Detection Model for distinguishing symptoms from adverse drug reactions
 
 ## FC-BERT (Filtering Clinical BERT)
 FC-BERT 알고리즘 기반의 필터링을 활용한 ADE(Adverse Drug Event) 분류 예측
@@ -9,6 +9,42 @@ FC-BERT 알고리즘 기반의 필터링을 활용한 ADE(Adverse Drug Event) �
 > 제안하는 알고리즘은 BiLSTM-CNNChar 구조의 Clinical BERT를 기반으로 필터링을 더하여 
 > 기존 연구에서 해결하지 못한 약물 복용 전 증상이나 다른 약물의 부작용 표현을 제거함으로써 
 > 보다 더 정확하게 약물 부작용 표현을 탐지할 수 있다.
+</br>
+
+## 핵심 요약
+### 문제 배경
++ 자발적 부작용 보고 제도의 적은 데이터를 보완하기 위해 소결미디어 데이터 활용
+> 환자가 직접 의약품에 대한 부작용을 복잡한 절차를 거쳐 보고해햐 하는 점, 자발적 부작용 보고 제도의 낮은 인식도로 자발적 약물 부작용 보고 건수는 낮은 편이다. 
+> 이런 문제점 때문에 최근 소셜 미디어 사용자들이 플랫폼에 올리는 약물 리뷰 데이터를 활용하여 약물 부작용 시그널을 탐지하는 연구들이 활발히 진행되고 있다.
+
++ 기존 약물 부작용 탐지 연구의 한계점 보완
+> 모든 리뷰안에 공통적으로 들어있는 약물 복용 전 증상이나 다른 약물에 대한 부작용 표현이 구분 없이 모두 약물 이상 반응이라고 판단한다.
+> 예를 들어 "두통이 있을 때마다 아세트아미노펜 계열의 진통제를 상용하였더니 간손상이 생겼다."라는 문장에서 두통은 증상이며, 간손상은 약물 이상 반응이다. 
+> 필터링을 사용하여 약물 이상 반응으로부터 이 두가지를 분리하는 것이 목적이다.
+
+### 해결 방안 
++ 필터링을 활용하여 문제점 해결
+> 약물 복용 전 증상을 제거하기 위해 약물명이 나오기 전 모든 문장을 삭제하는 필터링을 시용하였으며, 다른 약물에 대한 이상 반응을 제거하기 위해 ADE Relation Extraction 모델을 사용하여 다른 약물에 대한 이상 반응을 추출한 후 전체 결과에서 제거하는 필터링을 활용하였다. 
+
+### 결론
++ 기존 약물 부작용 탐지 연구의 문제점 해결
+> 약물 복용 전 증상과 다른 약물에 대한 부작용 표현을 제거하지 못하는 기존 ADE 탐지의 한계점을 필터링을 활용하여 보완한 모델인 FC-BERT를 제안하였다. ADE 파이프라인 모델만을 사용한 기존 모델과 2단계의 필터링과 SPARK NLP에서 제공하는 4개의 모델을 사용한 FC-BERT를 ADE Corpus v2 데이터를 ADR과 nonADR로 분류하여 비교 실험한 결과, 정확도는 약 19.3% 상승하였고, 평균 정밀도, 평균 재현율, 평균 F1-Score 모두 개선되는 것을 확인할 수 있었다.
+</br>
+
+## 역량
++ 부작용과 증상의 차이를 찾아내고 이를 구분할 수 있는 2가지의 필터링 방법을 고안
++ 연구 내용을 논문으로 정리해 출원
+</br>
+
+## 사용언어 or 사용 툴, 사용 기술
++ 구글 Colab
++ sparknlp 3.4.1 
++ BioBERT, Clinical BERT
+</br>
+
+## 향후계획
++ 파인 튜닝을 통해 부작용 탐지의 정확도를 높일 계획
++ 해당 서비스를 제공할 수 있는 웹서비스 구축 중
 </br>
 
 ## 데이터
@@ -34,3 +70,6 @@ https://github.com/trunghlt/AdverseDrugReaction/tree/master/ADE-Corpus-V2 에서
 .ipynb: 코드의 구성은 다음과 같다.
 + ADE Corpus V2 데이터에 ADE 분류 기반의 약물 부작용 탐지 모델 구축
 + ADE Classifier 파이프라인 모델을 적용하는 기본 모델과 FC-BERT를 비교 실험한 성능 평가 및 NER 결과 시각화
+
+## 논문
++ Filtering Clinical BERT (FC-BERT): 증상과 약물 이상반응 구분을 위한 약물 이상 반응 탐지 모델 
