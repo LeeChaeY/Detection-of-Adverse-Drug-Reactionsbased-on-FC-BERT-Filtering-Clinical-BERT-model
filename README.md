@@ -1,12 +1,12 @@
-# Filtering Clinical BERT (FC-BERT): An ADR Detection Model for distinguishing symptoms from adverse drug reactions
+# Filtering Clinical BERT Model
 
 ## FC-BERT (Filtering Clinical BERT)
-FC-BERT 알고리즘 기반의 필터링을 활용한 ADE(Adverse Drug Event) 분류 예측
+FC-BERT 모델 기반의 필터링을 활용한 ADE(Adverse Drug Event) 분류 예측
 > 자발적 부작용 보고제도의 낮은 데이터를 보완하기 위해 소셜미디어 데이터로부터 약물 부작용 표현을 탐지하기 위한 방법을 제시한다. 
 > 리뷰데이터에서 목표 약물에 대한 부작용 표현을 추출하는 이전 연구에서는 약물을 복용하기 전의 증상이나 
 > 목표약물이 아닌 다른 약물에 대한 부작용 표현을 제거하지 못한다는 한계점이 있다. 이런 한계점을 보완하기 위해서 
-> SPARK-NLP에서 제공하는 4개의 모델과 단계의 필터링을 활용하여 ADE 말뭉치의 ADE 유무를 판단하는 알고리즘을 개발하였다. 
-> 제안하는 알고리즘은 BiLSTM-CNNChar 구조의 Clinical BERT를 기반으로 필터링을 더하여 
+> SPARK-NLP에서 제공하는 4개의 모델과 단계의 필터링을 활용하여 ADE 말뭉치의 ADE 유무를 판단하는 모델을 개발하였다. 
+> 제안하는 모델은 BiLSTM-CNNChar 구조의 Clinical BERT를 기반으로 필터링을 더하여 
 > 기존 연구에서 해결하지 못한 약물 복용 전 증상이나 다른 약물의 부작용 표현을 제거함으로써 
 > 보다 더 정확하게 약물 부작용 표현을 탐지할 수 있다.
 </br>
