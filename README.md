@@ -73,3 +73,4 @@ https://github.com/trunghlt/AdverseDrugReaction/tree/master/ADE-Corpus-V2 에서
 
 ## 논문
 + Filtering Clinical BERT (FC-BERT): 증상과 약물 이상반응 구분을 위한 약물 이상 반응 탐지 모델 
++ http://koreascience.or.kr/article/CFKO202220859184191.page 
